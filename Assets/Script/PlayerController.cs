@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_isGroundedLength = 0.2f;
     Rigidbody m_rb;
     /// <summary>キャラクターの Animator</summary>
-    [SerializeField] Animator m_anim;
+    [SerializeField] Animator m_anim = null;
 
     void Start()
     {
@@ -81,12 +81,6 @@ public class PlayerController : MonoBehaviour
             {
                 m_anim.SetTrigger("Attack");
             }
-
-            if (Input.GetButtonDown("Fire2") && IsGrounded())
-            {
-                
-            }
-
             // 水平方向の速度を Speed にセットする
             Vector3 velocity = m_rb.velocity;
             velocity.y = 0f;

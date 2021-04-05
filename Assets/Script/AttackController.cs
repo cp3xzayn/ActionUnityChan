@@ -9,7 +9,7 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     /// <summary>攻撃範囲のコライダー</summary>
-    [SerializeField] Collider m_attackRange;
+    [SerializeField] Collider m_attackRange = null;
 
     void Start()
     {
