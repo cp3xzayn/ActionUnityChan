@@ -125,6 +125,14 @@ public class PlayerController : MonoBehaviour
         bool isGrounded = Physics.Linecast(start, end); // 引いたラインに何かがぶつかっていたら true とする
         return isGrounded;
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Item")
+        {
+            Destroy(col.gameObject);
+        }
+    }
 }
 
 public enum ControlType
