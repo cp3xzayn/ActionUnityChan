@@ -428,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919298068}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 11.24, z: -0}
+  m_LocalPosition: {x: 0, y: 10.69, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -445,27 +445,14 @@ GameObject:
   - component: {fileID: 1879853092}
   - component: {fileID: 1879853091}
   - component: {fileID: 1879853090}
-  - component: {fileID: 1879853089}
+  - component: {fileID: 1879853093}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Shoter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1879853089
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879853088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1879853090
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -521,12 +508,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879853088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879853093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879853088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2911084a090a94c9f77e02b4e64ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shotObject: {fileID: 4208769516839307696, guid: 889d1f5a85bdf8c4b88b0bcf3007badd,
+    type: 3}
+  m_shoter: {fileID: 1879853088}
+  m_raycastObject: {fileID: 156106615}
+  m_shotAngle: 60
 --- !u!4 &3194853961916327476
 Transform:
   m_ObjectHideFlags: 0
