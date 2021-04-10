@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaycastManager : MonoBehaviour
 {
+    /// <summary> Rayが当たってる箇所に生成するGameObject </summary>
     [SerializeField] GameObject m_hitPoint = null;
     /// <summary> 発射位置を移動できるか </summary>
     bool isMoveHitPoint = true;
@@ -18,16 +19,26 @@ public class RaycastManager : MonoBehaviour
     /// <summary> 発射位置が決定されたか </summary>
     public bool IsDecide {　 get { return isDecide; }　}
 
+    [SerializeField] GameObject m_shotManager = null;
+    ShotManager shotManager;
+
+    /// <summary> RaycastをFieldのみを判断させるためのLayerMask </summary>
+    [SerializeField] LayerMask layerMask;
+
+    void Start()
+    {
+        shotManager = m_shotManager.GetComponent<ShotManager>();
+    }
+
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             if (isMoveHitPoint)
             {
-                m_hitPoint.transform.position
-                    = new Vector3(hit.point.x, hit.point.y + 0.01f, hit.point.z);
+                m_hitPoint.transform.position = hit.point;
             }
             if (hit.collider.gameObject.tag == "Field")
             {
@@ -43,6 +54,7 @@ public class RaycastManager : MonoBehaviour
         {
             isDecide = false;
             isMoveHitPoint = true;
+            shotManager.IsOneShot = true;
         }
     }
 }

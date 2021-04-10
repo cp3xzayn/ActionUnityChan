@@ -8,8 +8,14 @@ public class ShotManager : MonoBehaviour
     [SerializeField] GameObject m_shoter = null;
     [SerializeField] GameObject m_raycastObject = null;
     RaycastManager raycastManager;
-    bool isShot;
-    bool isReady = true;
+
+    /// <summary> 一度のみ発射する </summary>
+    private bool isOneShot = true;
+    /// <summary> 一度のみ発射する </summary>
+    public bool IsOneShot
+    {
+        set { isOneShot = value; }
+    }
 
     [SerializeField] float m_shotAngle = 60.0f;
     void Start()
@@ -19,15 +25,14 @@ public class ShotManager : MonoBehaviour
     }
     void Update()
     {
-        isShot = raycastManager.IsDecide;
-        Debug.Log(isShot);
+        bool isShot = raycastManager.IsDecide;
         Vector3 targetPos = raycastManager.TargetPos;
         if (isShot)
         {
-            if (isReady)
+            if (isOneShot)
             {
                 Shot(targetPos);
-                isReady = false;
+                isOneShot = false;
             }
         }
     }
